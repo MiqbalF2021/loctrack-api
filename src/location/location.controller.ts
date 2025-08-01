@@ -8,13 +8,11 @@ export class LocationController {
 
   @Post()
   async create(@Body() createLocationDto: CreateLocationDto) {
-    // Using a default user ID (1) or you could modify the DTO to include userId
-    return this.locationService.createWithoutAuth(createLocationDto, 1);
+    return this.locationService.create(createLocationDto);
   }
 
   @Get()
   async findAll() {
-    // Return all locations or locations for a default user (1)
     return this.locationService.findAllLocations();
   }
 

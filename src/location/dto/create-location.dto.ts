@@ -1,4 +1,10 @@
-import { IsNotEmpty, IsNumber, IsDateString } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsNumber,
+  IsDateString,
+  IsOptional,
+  IsString,
+} from 'class-validator';
 
 export class CreateLocationDto {
   @IsNumber()
@@ -12,4 +18,8 @@ export class CreateLocationDto {
   @IsDateString()
   @IsNotEmpty()
   timestamp: string;
+
+  @IsOptional()
+  @IsString()
+  store?: string;
 }

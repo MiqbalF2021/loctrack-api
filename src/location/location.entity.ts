@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 import { User } from '../user/user.entity';
 
 @Entity()
@@ -18,9 +18,12 @@ export class Location {
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   createdAt: Date;
 
-  @ManyToOne(() => User, { eager: false })
-  user: User;
+  @Column({ type: 'varchar', nullable: true })
+  store?: string;
 
-  @Column()
-  userId: number;
+  // @ManyToOne(() => User, { eager: false })
+  // user: User;
+
+  // @Column()
+  // userId: number;
 }

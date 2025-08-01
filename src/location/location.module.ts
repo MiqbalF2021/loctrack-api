@@ -7,10 +7,7 @@ import { UserModule } from '../user/user.module';
 import { LocationGateway } from './location.gateway';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([Location]),
-    UserModule,
-  ],
+  imports: [TypeOrmModule.forFeature([Location]), UserModule],
   providers: [LocationService, LocationGateway],
   controllers: [LocationController],
   exports: [LocationService, LocationGateway],
