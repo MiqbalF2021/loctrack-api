@@ -20,7 +20,12 @@ export class LocationService {
     location.timestamp = new Date(createLocationDto.timestamp);
     location.store = createLocationDto.store;
 
-    return this.locationRepository.save(location);
+    const savedLocation = await this.locationRepository.save(location);
+
+    // Emit the new location to all connected clients
+    this.locationGateway.emitNewLocation(savedLocation);
+
+    return savedLocation;
   }
 
   async findAllLocations(): Promise<Location[]> {

@@ -1,5 +1,4 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-import { User } from '../user/user.entity';
 
 @Entity()
 export class Location {
@@ -20,10 +19,4 @@ export class Location {
 
   @Column({ type: 'varchar', nullable: true })
   store?: string;
-
-  // @ManyToOne(() => User, { eager: false })
-  // user: User;
-
-  // @Column()
-  // userId: number;
 }
